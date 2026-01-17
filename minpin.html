@@ -4,226 +4,307 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    
-    <title>The Miniature Pinscher</title>
+    <title>The Miniature Pinscher | Luxury Breed Profile</title>
     
     <style>
+        /* Luxury Brand Variables */
         :root {
-            --primary-navy: #040a2b;
-            --accent-gold: #c5a358;
-            --text-gray: #4c4e59;
-            --border-light: #cccccc;
+            --gold: #c5a059;
+            --navy: #001a3d;
+            --cream: #f9f7f2;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            font-size: 15px;
-            font-family: "AkzidenzGrotesk W1G", Helvetica, Arial, sans-serif;
-            letter-spacing: .05em;
-            color: var(--primary-navy);
-            background-color: #fff;
+            font-family: 'Times New Roman', serif;
+            background-color: var(--cream);
+            color: var(--navy);
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
-        header {
-            border-bottom: 1px solid var(--border-light);
-            padding: 20px 0;
-            text-align: center;
-            position: sticky;
+        /* Sticky Header & Flexbox Navigation */
+        #header {
+            position: fixed;
             top: 0;
-            background: white;
+            width: 100%;
+            height: 90px;
+            background-color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             z-index: 1000;
         }
 
         .logo {
-            font-family: "Optima Display Roman", serif;
-            font-size: 24px;
-            letter-spacing: 0.2em;
+            font-size: 1.5rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            font-weight: 700;
-            margin-bottom: 10px;
+            font-weight: 300;
+            color: var(--navy);
+            text-decoration: none;
         }
 
-        .nav-links {
-            font-size: 11px;
-            font-weight: 700;
+        #nav-bar ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--navy);
+            margin-left: 30px;
             text-transform: uppercase;
             letter-spacing: 2px;
-        }
-
-        .nav-links a { 
-            text-decoration: none; 
-            color: var(--primary-navy); 
-            margin: 0 15px; 
+            font-size: 0.8rem;
+            transition: color 0.3s;
             padding-bottom: 5px;
-            transition: border-color 0.3s ease, color 0.3s ease;
-            border-bottom: 2px solid transparent;
+            border-bottom: 1px solid transparent;
         }
 
-        /* Highlight for the current section */
-        .nav-links a.active {
-            border-bottom: 2px solid var(--accent-gold);
-            color: var(--accent-gold);
+        .nav-link:hover, .nav-link.active {
+            color: var(--gold);
+            border-bottom: 1px solid var(--gold);
         }
 
-        .hero { background-color: #f8f8f8; padding: 80px 20px; text-align: center; }
-
-        .headline--large {
-            font-family: "OptimaDisplayLight", serif;
-            font-size: 50px;
-            line-height: .85;
-            letter-spacing: -.05em;
-            margin-bottom: 20px;
+        /* Content Sections */
+        main {
+            margin-top: 90px; /* Offset for fixed header */
         }
 
-        @media only screen and (min-width: 769px) { .headline--large { font-size: 100px; } }
-
-        .eyebrow { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; margin-bottom: 15px; display: block; }
-
-        .container { max-width: 1180px; margin: 0 auto; padding: 60px 20px; }
-
-        .history-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-
-        @media (max-width: 768px) { .history-grid { grid-template-columns: 1fr; } }
-
-        .text--long-copy { font-size: 16px; line-height: 28px; color: var(--text-gray); }
-
-        .headline--section {
-            font-family: "OptimaDisplayLight", serif;
-            font-size: 35px;
-            border-bottom: 1px solid var(--border-light);
-            padding-bottom: 16px;
-            margin-bottom: 30px;
+        section {
+            padding: 100px 10%;
+            text-align: center;
         }
 
-        .video-container { max-width: 800px; margin: 0 auto; }
-
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-            background: #000;
+        .hero {
+            background-color: var(--white);
+            padding: 120px 10%;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
         }
 
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        h1, h2, h3 {
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        h1 { font-size: 3rem; line-height: 1.2; }
+        h2 { font-size: 2rem; color: var(--gold); }
+
+        .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            display: block;
+            color: var(--gold);
+        }
+
+        /* Layout Grid */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .history-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            text-align: left;
+        }
+
+        .text--long-copy {
+            font-size: 1.1rem;
+            color: var(--navy);
+            opacity: 0.9;
+        }
+
+        /* Media Responsiveness */
+        .video-container {
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        #video {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: 1px solid var(--gold);
+        }
 
         .breed-image {
             width: 100%;
-            height: 350px;
-            object-fit: cover;
-            border: 1px solid #eee;
+            height: auto;
+            border: 1px solid var(--gold);
+            padding: 10px;
+            background: white;
         }
 
-        .auth-section { background: var(--primary-navy); color: white; padding: 80px 20px; text-align: center; }
+        /* Form Styling */
+        .auth-section {
+            background-color: var(--navy);
+            color: var(--cream);
+        }
 
-        .form-container { max-width: 400px; margin: 0 auto; }
+        #form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
 
         input[type="email"], input[type="password"] {
-            width: 100%; padding: 15px; margin: 10px 0; border: 1px solid #4c4e59;
-            background: transparent; color: white; box-sizing: border-box;
+            padding: 15px;
+            width: 100%;
+            border: 1px solid var(--gold);
+            background: transparent;
+            color: var(--cream);
+            font-family: inherit;
         }
 
-        .btn-submit {
-            background: white; color: var(--primary-navy); border: none; padding: 15px 30px;
-            font-weight: 700; text-transform: uppercase; letter-spacing: .15em;
-            cursor: pointer; width: 100%; margin-top: 10px;
+        .btn {
+            background-color: var(--gold);
+            color: var(--white);
+            padding: 15px 40px;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
         }
 
-        .security-badge { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; margin-top: 30px; opacity: 0.6; }
+        .btn:hover {
+            background-color: #b38f4d;
+            letter-spacing: 3px;
+        }
 
-        footer { padding: 40px; text-align: center; font-size: 11px; color: var(--text-gray); border-top: 1px solid var(--border-light); }
+        footer {
+            padding: 40px;
+            text-align: center;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Media Query for Mobile */
+        @media (max-width: 768px) {
+            #header {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+            }
+            #nav-bar ul {
+                margin-top: 15px;
+            }
+            .nav-link {
+                margin: 0 10px;
+            }
+            .history-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">Zwergpinscher</div>
-        <div class="nav-links" id="main-nav">
-            <a href="#history">History</a>
-            <a href="#video">Fun Song</a>
-            <a href="#signin">Sign In</a>
-        </div>
+    <header id="header">
+        <a href="#" class="logo">Zwergpinscher</a>
+        <nav id="nav-bar">
+            <ul>
+                <li><a class="nav-link" href="#history">History</a></li>
+                <li><a class="nav-link" href="#video-section">Song for your minpin</a></li>
+                <li><a class="nav-link" href="#signin">Join Us</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="hero">
-        <span class="eyebrow">The King of Toys</span>
-        <h1 class="headline--large">German Heritage.<br>Fearless Spirit.</h1>
-    </section>
+    <main>
+        <section class="hero">
+            <span class="eyebrow">The King of Toys</span>
+            <h1>German Heritage.<br>Fearless Spirit.</h1>
+        </section>
 
-    <section id="history" class="content-section">
-        <div class="container">
-            <h2 class="headline--section">Old World Origins</h2>
-            <div class="history-grid">
-                <div class="text--long-copy">
-                    <p>Guten Tag! The Miniature Pinscher, or <strong>Zwergpinscher</strong>, is a distinct German breed centuries older than the Doberman. Originating as an elite ratter, they were bred for agility and a fearless temperament.</p>
-                    <p>They are famous for their "hackney" gait (a high-stepping action that gives them a unique, proud elegance).</p>
-                </div>
-                <div>
-                    <img src="https://lh3.googleusercontent.com/d/1z_lPtmL_s8C39T0B5ajZZqZPtpOWfb8V" alt="German Miniature Pinscher" class="breed-image">
-                </div>
+        <section id="history" class="content-section">
+            <div class="container">
+                <div class="history-grid">
+                    <div class="text--long-copy">
+                        <h2 style="text-align: left;">Old World Origins</h2>
+                        <p>Guten Tag! The Miniature Pinscher, or <strong>Zwergpinscher</strong>, is a distinct German breed centuries older than the Doberman. Originating as an elite ratter, they were bred for agility and a fearless temperament.</p>
+                        <br>
+                        <p>They are famous for their "hackney" gait—a high-stepping action that gives them a unique, proud elegance.</p>
+                    </div>
+                    <div>
+    <img src="https://lh3.googleusercontent.com/u/0/d/1z_lPtmL_s8C39T0B5ajZZqZPtpOWfb8V" 
+         alt="German Miniature Pinscher" 
+         class="breed-image">
+</div>                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="video" class="content-section">
-        <div class="container">
-            <h2 class="headline--section">Fun Song</h2>
-            <div class="video-container">
-                <div class="video-wrapper">
+        <section id="video-section" class="content-section" style="background-color: #fff;">
+            <div class="container">
+                <span class="eyebrow">Song For Your Minpin</span>
+                <h2>The Spirit in Motion</h2>
+                <div class="video-container">
                     <iframe 
+                        id="video"
                         src="https://www.youtube-nocookie.com/embed/-eGYaYASc6E" 
-                        title="Miniature Pinscher Fun Video" 
+                        title="Miniature Pinscher" 
                         frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin"
                         allowfullscreen>
                     </iframe>
                 </div>
-                <p class="eyebrow" style="margin-top: 20px; text-align: center; color: var(--text-gray);">Fun song for your minpin</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="auth-section content-section" id="signin">
-        <div class="form-container">
-            <h3 class="eyebrow" style="color: white;">Join the Inner Circle</h3>
-            <form id="newsletterForm">
-                <input type="email" placeholder="EMAIL ADDRESS" required>
-                <button type="submit" class="btn-submit">Subscribe</button>
-            </form>
-            <hr style="margin: 50px 0; border: 0; border-top: 1px solid rgba(255,255,255,0.1);">
-            <p class="eyebrow" style="color: white; font-size: 11px;">Account Sign-In</p>
-            <form id="loginForm">
-                <input type="email" placeholder="EMAIL">
-                <input type="password" placeholder="PASSWORD">
-                <button type="submit" class="btn-submit">Sign In</button>
-            </form>
-            <div class="security-badge">
-                🛡️ Secure Encryption Enabled · Verified Member Portal
+        <section class="auth-section content-section" id="signin">
+            <div id="form-container">
+                <span class="eyebrow" style="color: var(--gold);">The Inner Circle</span>
+                <h3 style="color: white; margin-bottom: 40px;">Member Access</h3>
+                
+                <form id="form" action="#">
+                    <input type="email" id="email" placeholder="EMAIL ADDRESS" required>
+                    <input type="password" placeholder="PASSWORD" required>
+                    <button type="submit" class="btn" id="submit">Enter Portal</button>
+                </form>
+
+                <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 2px; margin-top: 30px; opacity: 0.6;">
+                    🛡️ Secure Verified Member Portal
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
-        
+        &copy; 2026 Zwergpinscher Heritage Society. All Rights Reserved.
     </footer>
 
     <script>
         const sections = document.querySelectorAll('.content-section');
-        const navLinks = document.querySelectorAll('.nav-links a');
+        const navLinks = document.querySelectorAll('.nav-link');
 
         window.addEventListener('scroll', () => {
             let current = "";
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                // Detects if the section is roughly in the middle of the viewport
-                if (pageYOffset >= (sectionTop - 200)) {
+                if (pageYOffset >= (sectionTop - 150)) {
                     current = section.getAttribute('id');
                 }
             });
